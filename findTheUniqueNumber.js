@@ -1,12 +1,8 @@
 function findUniq(arr) {
-  let arrSorted = arr.slice().sort();
-
-  let unique;
-  for (let i = 0; i < arr.length - 1; i++) {
-    if (arrSorted[i + 1] !== arrSorted[i]) {
-      unique = arrSorted[i + 1];
-    }
+  function onlyUnique(element, index, self) {
+    return self.indexOf(element) === index;
   }
+  let unique = arr.filter(onlyUnique);
   return unique;
 }
 
