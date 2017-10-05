@@ -1,12 +1,14 @@
 function findUniq(arr) {
-  
-    
+  let arrSorted = arr.slice().sort();
 
-  return arr;
+  let unique;
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arrSorted[i + 1] !== arrSorted[i]) {
+      unique = arrSorted[i + 1];
+    }
+  }
+  return unique;
 }
 
-var example1 = findUniq([1, 1, 1, 2, 1, 1]);
-var example2 = findUniq([0, 0, 0.55, 0, 0]);
-
-console.log('example1->', example1);
-console.log('example2', example2);
+let example1 = findUniq([3, 10, 3, 3, 3]);
+console.log(example1);
