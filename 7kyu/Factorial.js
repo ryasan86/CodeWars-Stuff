@@ -1,6 +1,13 @@
+function factorialCleverBestPractice(n) {
+  if (n < 0 || n > 12) {
+    throw new RangeError('Out of range');
+  }
+  return n ? n * factorial(n - 1) : 1;
+}
+
 function factorial(n) {
   if (n < 0 || n > 12) {
-    throw new RangeError('Parameter must be greater than 0 or less than 12');
+    throw new RangeError('Out of Range');
   } else {
     var number = 1;
     for (var i = 0; i < n; i++) {

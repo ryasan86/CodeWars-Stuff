@@ -21,5 +21,5 @@ function assertEqual(actual, expected) {
   }
 }
 
-assertEqual(findShort("bitcoin take over the world maybe who knows perhaps"), 3);
-assertEqual(findShort("turns out random test cases are easier than writing out basic ones"), 3); 
+assertEqual(findShort('bitcoin take over the world maybe who knows perhaps'), 3);
+assertEqual(findShort( 'turns out random test cases are easier than writing out basic ones'), 3);
