@@ -42,5 +42,5 @@ assertEqual(findLongest([1, 10, 100]), 100);
 assertEqual(findLongest([9000, 8, 800]), 9000);
 assertEqual(findLongest([8, 900, 500]), 900);
 
-var output = findLongestBPC3([1, 10, 100]);
+var output = findLongest([1, 10, 100]);
 console.log(output);
