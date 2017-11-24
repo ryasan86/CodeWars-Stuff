@@ -1,12 +1,14 @@
 function longestConsec(strarr, k) {
-  var newarr = [];
-  var i = 0;
+  if (strarr.length > k && k > 0) {
+    strarr = strarr.map(function(el, i, arr) {
+      return arr.slice(i, i + k).join('');
+    });
 
-  strarr.forEach(function(el, i, arr) {
-    console.log(strarr.slice(0, k));
-  });
+    return strarr.reduce(function(a, b) {
+      return a.length >= b.length ? a : b;
+    }, '');
+  }
 
-  console.log(newarr);
   return '';
 }
 
@@ -24,14 +26,14 @@ assertEqual(
   longestConsec(['zone', 'abigail', 'theta', 'form', 'libe', 'zas'], 2),
   'abigailtheta'
 );
-// assertEqual(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1), "oocccffuucccjjjkkkjyyyeehh");
-// assertEqual(longestConsec([], 3), "");
-// assertEqual(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2), "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck");
-// assertEqual(
-//   longestConsec(['wlwsasphmxx', 'owiaxujylentrklctozmymu', 'wpgozvxxiu'], 2),
-//   'wlwsasphmxxowiaxujylentrklctozmymu'
-// );
-// assertEqual(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2), "");
-// assertEqual(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3), "ixoyx3452zzzzzzzzzzzz");
-// assertEqual(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15), "");
-// assertEqual(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0), "");
+assertEqual(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1), "oocccffuucccjjjkkkjyyyeehh");
+assertEqual(longestConsec([], 3), "");
+assertEqual(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2), "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck");
+assertEqual(
+  longestConsec(['wlwsasphmxx', 'owiaxujylentrklctozmymu', 'wpgozvxxiu'], 2),
+  'wlwsasphmxxowiaxujylentrklctozmymu'
+);
+assertEqual(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2), "");
+assertEqual(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3), "ixoyx3452zzzzzzzzzzzz");
+assertEqual(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15), "");
+assertEqual(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0), "");

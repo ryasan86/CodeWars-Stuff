@@ -1,15 +1,24 @@
-function longestConsec(strarr, k) {
-  var newarr = [];
+function longestConsecBestPracticeClever(strarr, k) {
+  var longest = '';
+  for (var i = 0; k > 0 && i <= strarr.length - k; i++) {
+    var tempArray = strarr.slice(i, i + k);
+    var tempStr = tempArray.join('');
+    if (tempStr.length > longest.length) {
+      longest = tempStr;
+    }
+  }
+  return longest;
+}
 
+function longestConsec(strarr, k) {
   if (strarr.length > k && k > 0) {
-    strarr.forEach(function(el, i, arr) {
-      var sliced = arr.slice(i, i + k);
-      newarr.push(sliced.join(''));
+    strarr = strarr.map(function(el, i, arr) {
+      return arr.slice(i, i + k).join('');
     });
 
-    return newarr.reduce(function(a, b) {
+    return strarr.reduce(function(a, b) {
       return a.length >= b.length ? a : b;
-    }, '');  
+    }, '');
   }
 
   return '';
