@@ -1,46 +1,43 @@
-const findLongestBPC = l =>
-  l.reduce((a, b) => (`${b}`.length > `${a}`.length ? b : a));
-
-function findLongestBPC2(array) {
-  return array.reduce(
-    (res, curr) => (String(res).length < String(curr).length ? curr : res)
-  );
-}
-
-function findLongestBPC3(array) {
-  var newArr = array.map(function(element) {
-    return element.toString();
-  });
-  newArr.sort(function(a, b) {
-    return b.length - a.length;
-  });
-  return parseInt(newArr[0]);
-}
-
-function findLongest(array) {
-  var mostDigits = array[0].toString();
-
-  array.forEach((num, i) => {
-    num = num.toString();
-    if (num.length > mostDigits.length) {
-      mostDigits = num;
+// 4 passed 5 failed
+function longestConsec(strarr, k) {
+  var newarr = [];
+  var count = 0;
+  var longest = strarr[0];
+debugger;
+  while (count < k) {
+    for (var i = 0; i < strarr.length; i++) {
+      if (strarr[i].length > longest.length) {
+        longest = strarr[i];
+        newarr.push(longest);
+      }
+      strarr.splice(strarr.indexOf(longest), 1);
     }
-  });
+    count++;
+  }
 
-  return parseInt(mostDigits);
+  return newarr.reverse().join('');
 }
 
 function assertEqual(actual, expected) {
   if (actual === expected) {
     console.log('PASSED');
+    console.log(actual);
   } else {
     console.log('FAILED');
+    console.log(actual);
   }
 }
 
-assertEqual(findLongest([1, 10, 100]), 100);
-assertEqual(findLongest([9000, 8, 800]), 9000);
-assertEqual(findLongest([8, 900, 500]), 900);
-
-var output = findLongestBPC3([1, 10, 100]);
-console.log(output);
+// assertEqual(
+//   longestConsec(['zone', 'abigail', 'theta', 'form', 'libe', 'zas'], 2),
+//   'abigailtheta'
+// );
+// assertEqual(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2), "abigailtheta");
+assertEqual(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1), "oocccffuucccjjjkkkjyyyeehh");
+// assertEqual(longestConsec([], 3), "");
+// assertEqual(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2), "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck");
+// assertEqual(longestConsec(["wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu"], 2), "wlwsasphmxxowiaxujylentrklctozmymu");
+// assertEqual(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2), "");
+// assertEqual(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3), "ixoyx3452zzzzzzzzzzzz");
+// assertEqual(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15), "");
+// assertEqual(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0), "");
