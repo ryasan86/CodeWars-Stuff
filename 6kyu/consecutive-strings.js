@@ -1,18 +1,18 @@
 function longestConsec(strarr, k) {
-  var count = 0;
-  var difference = strarr.length - k;
+  var newarr = [];
 
-  while (count < difference) {
-    var shortest = strarr.reduce((a, b) => {
-      return a.length < b.length ? a : b;
+  if (strarr.length > k && k > 0) {
+    strarr.forEach(function(el, i, arr) {
+      var sliced = arr.slice(i, i + k);
+      newarr.push(sliced.join(''));
     });
 
-    strarr.splice(strarr.indexOf(shortest), 1);
-
-    count++;  
+    return newarr.reduce(function(a, b) {
+      return a.length >= b.length ? a : b;
+    }, '');  
   }
 
-  return strarr.join('');
+  return '';
 }
 
 function assertEqual(actual, expected) {
@@ -25,7 +25,10 @@ function assertEqual(actual, expected) {
   }
 }
 
-assertEqual(longestConsec(['zone', 'abigail', 'theta', 'form', 'libe', 'zas'], 2), 'abigailtheta');
+assertEqual(
+  longestConsec(['zone', 'abigail', 'theta', 'form', 'libe', 'zas'], 2),
+  'abigailtheta'
+);
 assertEqual(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1), "oocccffuucccjjjkkkjyyyeehh");
 assertEqual(longestConsec([], 3), "");
 assertEqual(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2), "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck");
