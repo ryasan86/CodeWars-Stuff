@@ -1,45 +1,24 @@
-function doneOrNot(board) {
-  for (var i = 0; i < board.length; i++) {
-    
-  }
-}
+// https://www.codewars.com/kata/fibonacci-tribonacci-and-friends/train/javascript
 
-function assertEqual(actual, expected) {
-  if (actual === expected) {
+function assertArrayEquals(actual, expected) {
+  var areEqualLength = actual.length === expected.length;
+  var areEqualItems = actual.every(function(item, i) {
+    return item === expected[i];
+  });
+
+  if (areEqualLength === areEqualItems) {
     console.log('PASSED');
-    console.log(actual);
   } else {
     console.log('FAILED');
-    console.log(actual);
   }
 }
 
-assertEqual(
-  doneOrNot([
-    [5, 3, 4, 6, 7, 8, 9, 1, 2],
-    [6, 7, 2, 1, 9, 5, 3, 4, 8],
-    [1, 9, 8, 3, 4, 2, 5, 6, 7],
-    [8, 5, 9, 7, 6, 1, 4, 2, 3],
-    [4, 2, 6, 8, 5, 3, 7, 9, 1],
-    [7, 1, 3, 9, 2, 4, 8, 5, 6],
-    [9, 6, 1, 5, 3, 7, 2, 8, 4],
-    [2, 8, 7, 4, 1, 9, 6, 3, 5],
-    [3, 4, 5, 2, 8, 6, 1, 7, 9]
-  ]),
-  'Finished!'
-);
+function Xbonacci(signature, n) {
+  
+}
 
-assertEqual(
-  doneOrNot([
-    [5, 3, 4, 6, 7, 8, 9, 1, 2],
-    [6, 7, 2, 1, 9, 0, 3, 4, 9],
-    [1, 0, 0, 3, 4, 2, 5, 6, 0],
-    [8, 5, 9, 7, 6, 1, 0, 2, 0],
-    [4, 2, 6, 8, 5, 3, 7, 9, 1],
-    [7, 1, 3, 9, 2, 4, 8, 5, 6],
-    [9, 0, 1, 5, 3, 7, 2, 1, 4],
-    [2, 8, 7, 4, 1, 9, 6, 3, 5],
-    [3, 0, 0, 4, 8, 1, 1, 7, 9]
-  ]),
-  'Try again!'
-);
+assertArrayEquals(Xbonacci([0,1],10),[0,1,1,2,3,5,8,13,21,34]);
+assertArrayEquals(Xbonacci([1,1],10),[1,1,2,3,5,8,13,21,34,55]);
+assertArrayEquals(Xbonacci([0,0,0,0,1],10),[0,0,0,0,1,1,2,4,8,16]);
+assertArrayEquals(Xbonacci([1,0,0,0,0,0,1],10),[1,0,0,0,0,0,1,2,3,6]);
+assertArrayEquals(Xbonacci([1,0,0,0,0,0,0,0,0,0],20),[1,0,0,0,0,0,0,0,0,0,1,1,2,4,8,16,32,64,128,256]);
