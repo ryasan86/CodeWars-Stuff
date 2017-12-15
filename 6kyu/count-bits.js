@@ -19,7 +19,7 @@ function assertEquals(actual, expected) {
   }
 }
 
-countBitsCBB = n => 
+countBitsCBB = n =>
   n
     .toString(2) // radix
     .split('0')
