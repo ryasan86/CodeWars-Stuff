@@ -18,7 +18,7 @@ String.prototype.camelCase = function() {
   let newArr = this.split('').map(function(char, i, arr) {
     return /\s/.test(arr[i - 1]) ? char.toUpperCase() : char;
   });
-  newArr[0] ? newArr[0] = newArr[0].toUpperCase() : null;
+  newArr[0] ? (newArr[0] = newArr[0].toUpperCase()) : null;
 
   return newArr.join('').replace(/\s/g, '');
 };
