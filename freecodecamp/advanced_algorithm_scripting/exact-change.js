@@ -11,14 +11,14 @@ const money = {
 };
 
 function checkCashRegister(price, cash, cid) {
-  let change = [];
+  let change    = [];
   let changeDue = cash - price;
-  cid = cid.reverse();
+      cid       = cid.reverse();
 
   cid.forEach(c => {
-    const moneyName = c[0];
-    let leftInDrawer = c[1];
-    const moneyVal = money[moneyName];
+    const moneyName    = c[0];
+    let   leftInDrawer = c[1];
+    const moneyVal     = money[moneyName];
 
     if (moneyVal <= changeDue && changeDue > 0) {
       const fromDrawer = drainDrawer(moneyVal, leftInDrawer, changeDue);
@@ -35,12 +35,12 @@ const drainDrawer = (moneyVal, leftInDrawer, changeDue) => {
   let result = 0;
 
   while (leftInDrawer > 0 && changeDue > 0 && changeDue - moneyVal >= 0) {
-    changeDue -= moneyVal;
+    changeDue    -= moneyVal;
     leftInDrawer -= moneyVal;
-    result += moneyVal;
-    leftInDrawer = Math.round(leftInDrawer * 100) / 100;
-    changeDue = Math.round(changeDue * 100) / 100;
-    result = Math.round(result * 100) / 100;
+    result       += moneyVal;
+    leftInDrawer  = Math.round(leftInDrawer * 100) / 100;
+    changeDue     = Math.round(changeDue * 100) / 100;
+    result        = Math.round(result * 100) / 100;
   }
 
   return result;

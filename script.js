@@ -1,13 +1,14 @@
-function firstNotRepeatingCharacter(s) {
-  for (let i = 0; i < s.length; i++) {
-    const currIdx = s.indexOf(s[i]);
-    const nextIdx = s.indexOf(s[i], i + 1);
-    if (currIdx === i && nextIdx === -1) {
-      return s[i];
-    }
-  }
-  return '_';
+// Setup
+var myArray = [];
+var i = 10;
+
+// Only change code below this line.
+
+while (i < 5) {
+  myArray.push(i);
+  i++;
 }
 
-const s = 'abcxabc';
-console.log(firstNotRepeatingCharacter(s));
+const checkSign = num => {
+  return num > 0 ? 'positive' : num < 0 ? 'negative' : 'zero';
+};
