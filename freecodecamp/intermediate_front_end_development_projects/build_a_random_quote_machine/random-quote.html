@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trump Quotes AJAX</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:400,500">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div id="quoteBox">
+
+        <div class="coloredText">
+            <div class="quoteText">
+                <i class="fa fa-quote-left"> </i>
+                <span id="output"></span>
+            </div>
+
+            <div class="quoteAuthor">
+                -
+                <span>Donald Trump</span>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <a id="tweetQuote" class="button coloredButton" title="Tweet this quote!" href="http://twitter.com" target="_blank">
+                <i class="fa fa-twitter"></i>
+            </a>
+            <a id="facebookQuote" class="button coloredButton" title="Post this quote on facebook!" href="http://facebook.com" target="_blank">
+                <i class="fa fa-facebook"></i>
+            </a>
+            <button id="newQuoteButton" class="button coloredButton">New quote</button>
+            <input id="personalizeInput" class="coloredText" type="text">
+        </div>
+
+        <div>
+            <small id="validateInput"></small>
+        </div>
+
+    </div>
+
+    <script src="./random-quote.js"></script>
+</body>
+
+</html>
