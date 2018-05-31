@@ -1,3 +1,5 @@
+// https://www.codewars.com/trainer/javascript
+
 function LCS(x, y) {
   let str = '';
   for (let i = 0; i < y.length; i++) {
