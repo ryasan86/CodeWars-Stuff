@@ -1,7 +1,6 @@
 function assertEquals(actual, expected, testNumber) {
   if (actual === expected) {
     console.log(testNumber, 'PASSED');
-    console.log(actual);
   } else {
     console.log(testNumber, 'FAILED');
   }
