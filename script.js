@@ -1,14 +1,25 @@
-// Setup
-var myArray = [];
-var i = 10;
+function makeClass() {
+  'use strict';
+  /* Alter code below this line */
+  class Thermostat {
+    constructor(temp) {
+      this.temp = temp;
+    }
 
-// Only change code below this line.
+    get temperature() {
+      return 5 / 9 * (this.temp - 32);
+    }
 
-while (i < 5) {
-  myArray.push(i);
-  i++;
+    set temperature(updatedTemperature) {
+      this.temp = updatedTemperature;
+    }
+  }
+  /* Alter code above this line */
+  return Thermostat;
 }
-
-const checkSign = num => {
-  return num > 0 ? 'positive' : num < 0 ? 'negative' : 'zero';
-};
+const Thermostat = makeClass();
+const thermos = new Thermostat(76); // setting in Fahrenheit scale
+let temp = thermos.temperature; // 24.44 in C
+console.log(temp);
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in C
