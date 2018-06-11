@@ -1,13 +1,10 @@
-const sortArray = array => {
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < array.length; j++) {
-      console.log([array[j], array[i]]);
-      if (array[j] > array[i] && array[j] % 2 !== 0 && array[i] % 2 !== 0) {
-        [array[j], array[i]] = [array[i], array[j]];
-      }
-    }
-  }
-  return array;
+const GetSum = (a, b) => {
+    
 };
 
-console.log(sortArray([5, 3, 2, 8, 1, 4]));
+// console.log(GetSum(1, 0)); // 1 + 0 = 1
+console.log(GetSum(1, 2)); // 1 + 2 = 3
+// console.log(GetSum(0, 1)); // 0 + 1 = 1
+// console.log(GetSum(1, 1)); // 1 Since both are same
+// console.log(GetSum(-1, 0)); // -1 + 0 = -1
+// console.log(GetSum(-1, 2)); // -1 + 0 + 1 + 2 = 2
