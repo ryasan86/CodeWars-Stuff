@@ -1,10 +1,23 @@
-const GetSum = (a, b) => {
-    
+// top solution
+const toUnderScore2 = name => {
+  return name.replace(/(?<=[^_-])_?(?=[A-Z])|(?<=[^\d_])_?(?=\d)/g, '_');
 };
 
-// console.log(GetSum(1, 0)); // 1 + 0 = 1
-console.log(GetSum(1, 2)); // 1 + 2 = 3
-// console.log(GetSum(0, 1)); // 0 + 1 = 1
-// console.log(GetSum(1, 1)); // 1 Since both are same
-// console.log(GetSum(-1, 0)); // -1 + 0 = -1
-// console.log(GetSum(-1, 2)); // -1 + 0 + 1 + 2 = 2
+// my solution
+const toUnderScore = name => {
+  let pattern = /(?<=[^_-])_?([A-Z]|[0-9]+)/g;
+
+  return name.replace(pattern, str => {
+    return `_${str.replace('_', '')}`;
+  });
+};
+
+// console.log(toUnderScore('_If_A_Test_Start_And_Ends_With_Underscore_It_Should_Be_The_Same_'));
+console.log(toUnderScore('Calculate500DividedBy5Equals100'));
+console.log(
+  toUnderScore(
+    '_If_A_Test_Start_And_Ends_With_Underscore_It_Should_Be_The_Same_'
+  )
+);
+
+// console.log('_If'.match(/?<=/));
