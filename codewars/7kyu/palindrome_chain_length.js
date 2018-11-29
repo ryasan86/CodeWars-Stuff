@@ -6,12 +6,13 @@
 // };
 
 var palindromeChainLength  = function(n) {  
-  var x = parseInt( (""+n).split('').reverse().join('') );
-  if(n != x){
-    console.log(palindromeChainLength (n + x))
-    return 1 + palindromeChainLength (n + x);
-  }
-  return 0;
-};
-
-console.log(palindromeChainLength(87));
+    var x = parseInt( (""+n).split('').reverse().join('') );
+    if(n != x){
+      console.log(palindromeChainLength (n + x))
+      return 1 + palindromeChainLength (n + x);
+    }
+    return 0;
+  };
+  
+  console.log(palindromeChainLength(87));
+  
